@@ -8,7 +8,7 @@ pinned: false
 short_description: RAG (Retrieval-Augmented Generation) system that answers que
 ---
 
-![RAG pipeline illustration](https://imgur.com/iChRyJ3)
+![RAG pipeline illustration](i.imgur.com/iChRyJ3.png)
 
 _Conceptual illustration — see [Demo](#demo) below for the actual terminal interface._
 
@@ -29,7 +29,7 @@ A local RAG (Retrieval-Augmented Generation) chatbot for querying personal proje
 
 ## Demo
 
-![Actual chat interface](https://imgur.com/CXSV7BK)
+![Actual chat interface](i.imgur.com/CXSV7BK.png)
 _Real terminal output: retrieved chunks with similarity scores, project filtering, and grounded answer generation._
 
 ## Architecture
