@@ -8,7 +8,7 @@ pinned: false
 short_description: RAG (Retrieval-Augmented Generation) system that answers que
 ---
 
-![RAG pipeline illustration](https://github-production-user-asset-6210df.s3.amazonaws.com/119807029/614266694-16851bcf-1fb4-4b12-90a5-3d564329f510.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260628T154713Z&X-Amz-Expires=300&X-Amz-Signature=65a4e5c0594c3afdc1ca59d51d7423e09b2129b41dba5c37d2f9c1b386dceda9&X-Amz-SignedHeaders=host&response-content-type=image%2Fpng)
+![RAG pipeline illustration](https://imgur.com/iChRyJ3)
 
 _Conceptual illustration — see [Demo](#demo) below for the actual terminal interface._
 
@@ -29,7 +29,7 @@ A local RAG (Retrieval-Augmented Generation) chatbot for querying personal proje
 
 ## Demo
 
-![Actual chat interface](https://github-production-user-asset-6210df.s3.amazonaws.com/119807029/614279678-0ab59c97-020c-47df-a608-0c4f4e2f6e41.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260628T180403Z&X-Amz-Expires=300&X-Amz-Signature=e3e3fde80c3b024c1bf3c1a44867f5046c045b7d472ec11b3c3e87b357ad7aeb&X-Amz-SignedHeaders=host&response-content-type=image%2Fpng)
+![Actual chat interface](https://imgur.com/CXSV7BK)
 _Real terminal output: retrieved chunks with similarity scores, project filtering, and grounded answer generation._
 
 ## Architecture
