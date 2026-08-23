@@ -10,4 +10,4 @@ Pipeline: Out-of-core ingestion with Dask → sliding-window feature extraction 
 
 Kaggle competition variant: kinematic feature engineering (elbow joint angles, bilateral joint distances, rotation norms) + LightGBM/RandomForest soft-voting ensemble → 0.94169 private leaderboard accuracy.
 
-GitHub: github.com/frissonitte/kinematic-action-recognition
+GitHub: github.com/yildirimemirhan/kinematic-action-recognition

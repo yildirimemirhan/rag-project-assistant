@@ -669,5 +669,5 @@ Değer	Ne anlama geliyor
  6. *Inference-time domain adaptation* — retraining olmadan +32.09 puan
 
 Proje canlı: emirhanyildirim.me/wbc-analyzer <https://
-emirhanyildirim.me/wbc-analyzer>  ·  GitHub: github.com/frissonitte/wbc-
-analyzer-final <https://github.com/frissonitte/wbc-analyzer-final>
+emirhanyildirim.me/wbc-analyzer>  ·  GitHub: github.com/yildirimemirhan/wbc-
+analyzer-final <https://github.com/yildirimemirhan/wbc-analyzer-final>

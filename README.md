@@ -142,10 +142,10 @@ fastapi dev app.py
 
 ## API
 
-**Live endpoint:** `https://frissonitte-rag-project-assistant.hf.space/query`
+**Live endpoint:** `https://yildirimemirhan-rag-project-assistant.hf.space/query`
 
 ```bash
-curl -X POST https://frissonitte-rag-project-assistant.hf.space/query \
+curl -X POST https://yildirimemirhan-rag-project-assistant.hf.space/query \
   -H "Content-Type: application/json" \
   -d '{"query": "What is WBC Analyzer?"}'
 ```
