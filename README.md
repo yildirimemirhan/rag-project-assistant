@@ -8,7 +8,7 @@ pinned: false
 short_description: RAG (Retrieval-Augmented Generation) system that answers que
 ---
 
-![RAG pipeline illustration](https://i.imgur.com/iChRyJ3.png)
+![RAG Project Thumbnail](https://i.imgur.com/1MkMEaa.png)
 
 _Conceptual illustration — see [Demo](#demo) below for the actual terminal interface._
 
