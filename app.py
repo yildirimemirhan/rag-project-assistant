@@ -16,7 +16,7 @@ async def lifespan(app: FastAPI):
     yield
     print("Shutting down RAG backend...")
 
-app = FastAPI(lifespan=lifespan, title="Frissonitte RAG API")
+app = FastAPI(lifespan=lifespan, title="RAG Project Assistant API")
 
 class QueryRequest(BaseModel):
     query: str

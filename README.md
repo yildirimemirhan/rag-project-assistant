@@ -12,7 +12,7 @@ short_description: RAG (Retrieval-Augmented Generation) system that answers que
 
 _Conceptual illustration — see [Demo](#demo) below for the actual terminal interface._
 
-# frissonitte's rag project assistant
+# RAG Project Assistant
 
 A local RAG (Retrieval-Augmented Generation) chatbot for querying personal project documentation. Built to replace hallucination-prone LLM responses with grounded answers extracted from actual project source code and documentation.
 
