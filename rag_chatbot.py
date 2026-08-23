@@ -17,7 +17,7 @@ from rich.table import Table
 PERSISTENT_DB = True
 CHROMA_DB_PATH = "./chroma_db"
 COLLECTION_NAME = "projects"
-GROQ_MODEL = "llama-3.3-70b-versatile"
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
 DOCS_DIR = "documents"
 
 console = Console()
@@ -202,13 +202,25 @@ def answer_query(query: str, state: dict) -> str:
             "5. Be concise and precise. Answer in the same language as the question."
         )
         user_message = f"Sources: {source_list}\n\nContext:\n{context}\n\nQuestion: {query}"
-        response = groq_client.chat.completions.create(
-            model=GROQ_MODEL,
-            messages=[
-                {"role": "system", "content": system_instruction},
-                {"role": "user", "content": user_message},
-            ],
-        )
+        try:
+            response = groq_client.chat.completions.create(
+                model=GROQ_MODEL,
+                messages=[
+                    {"role": "system", "content": system_instruction},
+                    {"role": "user", "content": user_message},
+                ],
+            )
+        except Exception as e:
+            if GROQ_MODEL != "openai/gpt-oss-20b":
+                response = groq_client.chat.completions.create(
+                    model="openai/gpt-oss-20b",
+                    messages=[
+                        {"role": "system", "content": system_instruction},
+                        {"role": "user", "content": user_message},
+                    ],
+                )
+            else:
+                raise e
         sources = sorted({m.get('source', 'unknown') for m in metadatas if m})
         return {
             "answer": response.choices[0].message.content,
