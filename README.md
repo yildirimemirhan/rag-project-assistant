@@ -173,6 +173,10 @@ curl -X POST https://yildirimemirhan-rag-project-assistant.hf.space/query \
 
 Rate limit: 3 requests/hour per IP.
 
+### Health probe
+
+`GET /health` returns `{"status":"ok","chunks":N,"model":...}` once the index is loaded and `503 {"status":"warming"}` before. It is not rate limited and costs no Groq call. The portfolio widget pings it on page load, and a scheduled workflow in the portfolio repo pings it every 6 h so the free Space does not sleep.
+
 ## Commands
 
 | Command    | Description                                               |
