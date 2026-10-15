@@ -1,0 +1,11 @@
+[
+  {"q": "What is your current M.Sc. thesis about?", "sources": ["research_highlights.txt"], "any": ["video", "latency", "withheld"], "none": ["PSNR", "SSIM"]},
+  {"q": "What exactly are the results of your thesis?", "sources": ["research_highlights.txt"], "any": ["withheld", "supervisor", "publication", "don't have"], "none": ["accuracy of", "PSNR"]},
+  {"q": "What did you build at Esbi?", "sources": ["crm-aspnetcore_highlights.txt"], "any": ["CRM", "ASP.NET"], "none": []},
+  {"q": "Which roles are you open to?", "sources": ["profile_README.md"], "any": ["junior", "part-time", "intern"], "none": []},
+  {"q": "Did you place first on the Kaggle leaderboard?", "sources": ["kinematic_highlights.txt", "kinematic_README.md"], "any": ["0.94169", "don't have"], "none": ["1st place", "first place", "ranked first"]},
+  {"q": "How many transactions has zidorun handled?", "sources": ["profile_README.md"], "any": ["1,000", "95%"], "none": ["700"]},
+  {"q": "What is your OOD accuracy improvement on WBC Analyzer?", "sources": ["wbc-analyzer_highlights.txt", "wbc-analyzer_README.md"], "any": ["89.05", "56.96"], "none": []},
+  {"q": "How does this assistant prevent hallucination?", "sources": ["rag-project-assistant_highlights.txt"], "any": ["1.40", "threshold"], "none": []},
+  {"q": "What is the capital of France?", "sources": [], "any": ["don't have"], "none": ["Paris"]}
+]

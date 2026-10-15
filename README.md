@@ -106,6 +106,17 @@ Two source types with different roles:
 
 `_highlights.txt` is hand-written per project. This is intentional: motivation and architectural decisions are rarely in source code comments. The system is a hybrid — automatic extraction for structure, curated content for rationale. This distinction matters: the system does not "understand" code; it retrieves the most relevant pre-extracted or pre-written text and grounds the LLM's response to it.
 
+### Hand-curated docs (`knowledge/`)
+
+Profile, CRM, research and this assistant's own description live in `knowledge/` (tracked in git). `prepare_docs.py` copies them into `documents/` via `copy_knowledge()`, so regenerating documents never drops them. Routing for every project key lives in `routing.py`.
+
+## Tests and Evals
+
+| Lane              | Command                                  | Cost | What it checks                                                                          |
+| ----------------- | ---------------------------------------- | ---- | --------------------------------------------------------------------------------------- |
+| Gate (<2s, local) | `python -m unittest discover -s tests`   | free | query routing, every project has docs, knowledge docs synced, no stale claims           |
+| Periodic eval     | `python evals/run_eval.py`               | Groq | retrieved sources, required facts, forbidden claims and out-of-scope refusal (>= 85%)   |
+
 ## Known Limitations
 
 **Source attribution errors at chunk boundaries:** The LLM sometimes names the wrong file as the source when the relevant information spans a chunk boundary. The chunk metadata records the source file, but a function defined in `utils.py` may appear in a chunk whose surrounding text is from a runner script. Not critical for Q&A accuracy but worth noting if precise attribution is required.
@@ -178,3 +189,6 @@ Rate limit: 3 requests/hour per IP.
 - **Listing Pilot** — Appium automation suite for C2C marketplace listing management
 - **Popcorn Wagon** — Hybrid movie recommender (SVD + Annoy + TMDB)
 - **Portal Cleaner Ultimate** — RPA desktop suite for ERP workflow automation
+- **ASP.NET Core MVC CRM Application** — CRM built during the Esbi Bilişim internship
+- **Research** — supervised Computer Vision projects at Sakarya University (thesis details withheld)
+- **Profile** — education, experience, certifications, availability and contact

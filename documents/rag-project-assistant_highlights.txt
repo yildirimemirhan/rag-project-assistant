@@ -1,0 +1,14 @@
+RAG Project Assistant (this assistant)
+
+Jun 2026
+
+Retrieval-Augmented Generation system that answers questions about Emirhan Yildirim and his projects. Source code: github.com/yildirimemirhan/rag-project-assistant
+
+Key Technical Highlights:
+
+- Code extraction with Python's ast module instead of regex: accurate docstrings and function signatures, no false positives on multi-line strings.
+- Similarity-threshold gate (ChromaDB, L2 distance < 1.40) calibrated after verifying that standard embeddings under-scored table-heavy markdown; suppresses hallucination on out-of-scope queries.
+- Cross-project context leakage (shared "API" terminology causing retrieval contamination) fixed with keyword-based project detection and metadata filtering, with a full-corpus fallback when filtering returns nothing.
+- Deployed as a FastAPI service on Hugging Face Spaces (Docker) with Groq inference, IP-based rate limiting (slowapi), and a public JavaScript chat widget on emirhanyildirim.me.
+
+Stack: Python, sentence-transformers (all-MiniLM-L6-v2), ChromaDB, FastAPI, Docker, Groq API, slowapi, Hugging Face Spaces.

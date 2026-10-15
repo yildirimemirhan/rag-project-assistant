@@ -12,6 +12,7 @@ from rich.markdown import Markdown
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich.prompt import Prompt
 from rich.table import Table
+from routing import PROJECT_KEYWORDS, KNOWN_PROJECTS, detect_project, extract_project
 
 # --- CONFIGURATION ---
 PERSISTENT_DB = True
@@ -53,20 +54,6 @@ def chunk_text(text, chunk_size=200, overlap=40):
         chunks.append(chunk)
     return chunks
 
-KNOWN_PROJECTS = [
-    "wbc-analyzer",
-    "kinematic",
-    "listing-pilot",
-    "popcorn-wagon",
-    "portal-cleaner-ultimate",
-]
-
-def _extract_project(filename: str) -> str:
-    for p in KNOWN_PROJECTS:
-        if filename.startswith(p):
-            return p
-    return "unknown"
-
 def load_documents():
     if not os.path.exists(DOCS_DIR):
         console.print(f"[red]Error: '{DOCS_DIR}' directory not found! Run 'prepare_docs.py' first.[/red]")
@@ -84,7 +71,7 @@ def load_documents():
                     content = f.read()
 
                 chunks = chunk_text(content)
-                project = _extract_project(filename)
+                project = extract_project(filename)
                 all_chunks.extend(chunks)
                 sources.extend([filename] * len(chunks))
                 projects.extend([project] * len(chunks))
@@ -131,20 +118,6 @@ def answer_query(query: str, state: dict) -> str:
     groq_client = state["groq_client"]
 
     SIMILARITY_THRESHOLD = 1.40
-    PROJECT_KEYWORDS = {
-        "wbc-analyzer": ["wbc", "wbc analyzer", "wbc-analyzer", "white blood cell", "arayüz", "hücre", "densenet", "mef", "grad-cam", "gradcam", "medsiwsh", "wbcattention"],
-        "listing-pilot": ["listing pilot", "listing-pilot", "dolap", "gardrops", "appium", "fiyat", "listing"],
-        "kinematic": ["kinematic", "hareket", "action recognition", "dask", "arf", "adwin", "motion"],
-        "popcorn-wagon": ["popcorn wagon", "popcorn-wagon", "film", "movie", "öneri", "recommendation", "svd", "annoy"],
-        "portal-cleaner-ultimate": ["portal cleaner", "portal-cleaner", "portal", "erp", "tkinter", "selenium scraper"],
-    }
-
-    def detect_project(q: str) -> str | None:
-        q_lower = q.lower()
-        for project, keywords in PROJECT_KEYWORDS.items():
-            if any(kw in q_lower for kw in keywords):
-                return project
-        return None
 
     detected_project = detect_project(query)
     where_filter = {"project": {"$eq": detected_project}} if detected_project else None
@@ -192,14 +165,15 @@ def answer_query(query: str, state: dict) -> str:
         context = "\n\n".join(context_chunks)
         source_list = ", ".join({m.get('source', 'unknown') for m in metadatas if m})
         system_instruction = (
-            "You are an assistant that answers questions about the developer's own projects. "
-            "The context below comes from that project's documentation and source code.\n"
+            "You are an assistant that answers questions about the developer, Emirhan Yildirim, and his projects. "
+            "The context below comes from his profile, project documentation, and source code.\n"
             "Rules:\n"
             "1. Answer using information present in the context, including reasonable direct inferences.\n"
             "2. If the context genuinely contains no relevant information, say exactly: 'I don't have this information.' and stop.\n"
             "3. Do not invent facts not supported by the context.\n"
             "4. Mention which project or file the information comes from.\n"
-            "5. Be concise and precise. Answer in the same language as the question."
+            "5. Be concise and precise. Answer in the same language as the question.\n"
+            "6. Unpublished research details are withheld. Never speculate about methods or results beyond what the context states."
         )
         user_message = f"Sources: {source_list}\n\nContext:\n{context}\n\nQuestion: {query}"
         try:

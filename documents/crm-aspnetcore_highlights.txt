@@ -1,0 +1,16 @@
+ASP.NET Core MVC CRM Application
+
+Jul 2026 - Aug 2026
+
+Associated with Esbi Bilisim ve Telekomunikasyon (Software Engineer Intern, Sakarya)
+
+Source code: github.com/yildirimemirhan/crm-aspnetcore
+
+Key Technical Highlights:
+
+- Developed a CRM web application using ASP.NET Core MVC and Entity Framework Core with Code First migrations.
+- Implemented role-based authentication and authorization using ASP.NET Core Identity.
+- Built customer and inventory management modules with full CRUD operations, multi-field search, and server-side filtering.
+- Designed a responsive UI with Bootstrap 5 and Razor Views; applied N-Tier architecture with service layer abstraction.
+
+Stack: C#, ASP.NET Core MVC, Entity Framework Core (ORM), ASP.NET Core Identity, SQL, Bootstrap 5, Razor Views, REST APIs.

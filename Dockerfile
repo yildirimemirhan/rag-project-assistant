@@ -23,6 +23,7 @@ COPY --from=builder /install/deps /usr/local
 
 COPY documents/ documents/
 COPY rag_chatbot.py .
+COPY routing.py .
 COPY app.py .
 COPY build_index.py .
 

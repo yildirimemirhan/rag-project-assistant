@@ -6,6 +6,7 @@ import textwrap
 
 PROJECTS_DIR = "projects"
 DOCS_DIR = "documents"
+KNOWLEDGE_DIR = "knowledge"  # hand-curated docs, tracked in git, copied as-is
 
 TARGET_PROJECTS = {
     "wbc-analyzer": "WBC Analyzer",
@@ -163,6 +164,16 @@ def extract_rich_context(filepath: str) -> str:
     return "\n\n".join(sections)
 
 
+def copy_knowledge() -> None:
+    """Copy hand-curated docs (profile, CRM, RAG, research) into documents/."""
+    if not os.path.isdir(KNOWLEDGE_DIR):
+        return
+    os.makedirs(DOCS_DIR, exist_ok=True)
+    for name in sorted(os.listdir(KNOWLEDGE_DIR)):
+        shutil.copy2(os.path.join(KNOWLEDGE_DIR, name), os.path.join(DOCS_DIR, name))
+        print(f"Copied knowledge doc {name}")
+
+
 def main():
     if os.path.exists(DOCS_DIR):
         try:
@@ -211,6 +222,8 @@ def main():
                 f.write(f"# Code Context: {project_title}\n\n")
                 f.write("\n".join(project_sections))
             print(f"  Extracted code context to {out_path}")
+
+    copy_knowledge()
 
 
 if __name__ == "__main__":

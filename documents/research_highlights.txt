@@ -1,0 +1,22 @@
+Research Projects at Sakarya University (supervised, ongoing)
+
+1. Computer Vision & Machine Learning Research Project
+
+Aug 2026 - Present, Sakarya University. Continued as Emirhan's M.Sc. thesis from Sep 2026.
+
+- Supervised research on real-time video processing methods, with a focus on low latency and temporal consistency.
+- Designing the quantitative evaluation: perceptual image-quality metrics, statistical significance testing, and effect sizes.
+- Studying how video enhancement and processing methods tuned on one data domain generalize to others.
+- Details, methods, and results are withheld at the supervisor's request until publication. Nothing more can be shared about them.
+
+Skills: Computer Vision, Digital Image Processing, Video Processing, Applied Machine Learning.
+
+2. Computer Vision for Blood Cell Microscopy
+
+Sep 2026 - Present, Sakarya University, under the advisor's supervision.
+
+- Building an image processing toolkit for stained blood smear microscopy.
+- Covers the chain from raw microscope images to quantitative cell measurements: physics-based colour and stain handling, cross-slide stain normalization, nucleus and cell segmentation, and texture and shape feature extraction.
+- Segmentation and quantitative extraction are validated against expert clinical annotations.
+
+Stack: Python, PyTorch, Scikit-Learn, OpenCV.

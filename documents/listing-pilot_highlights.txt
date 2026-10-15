@@ -19,6 +19,6 @@ Key Technical Highlights:
 
     Real-time Monitoring: Integrated the Telegram Bot API to deliver real-time completion notifications and error alerts directly to mobile devices.
 
-Impact: Successfully automated the management of ~1,000 active listings, reducing the daily manual workload by over 90% and ensuring consistent, error-free catalog updates.
+Impact: Automated marketplace catalog management, reducing the daily manual workload by over 90%, with real-time completion and error alerts via the Telegram Bot API.
 
 
